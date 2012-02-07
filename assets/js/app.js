@@ -24,7 +24,7 @@ var feeds = {
             <!--<li onclick="'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
             <li onclick="url=''"><a href="#page2">Groupon</a><img src="http://static.dk.groupon-content.net/s/images/layout/favicon_groupon.ico" class="ui-li-icon"></li>
 			<li onclick="url=''"><a href="#page2">Pinq</a><img src="http://pinq.dk/wp-content/themes/pinq/images/favicon.ico" class="ui-li-icon"></li>*/
-function init()
+$(document).ready(function()
 {
     for(var feed in feeds)
 	{
@@ -32,7 +32,8 @@ function init()
 		buildFeed(feed,feeds[feed])
 	}
 	$('ul').listview('refresh');
-}
+});
+
 function buildFeed(title, url)
 {
 	jQuery.getFeed({
@@ -44,7 +45,9 @@ function buildFeed(title, url)
             for(var i = 0; i < feed.items.length && i < 10; i++)
             {
                 var item = feed.items[i];
-				var description = $(item.description).text();
+				var desc = $(item.description);
+				var img = desc.find("img");
+				var description = desc.text();
                 feedcontent += '<li><a href="'+item.link+'"><h3 class="ui-li-heading">'+item.title+'</h3><p class="ui-li-desc">'+description+'</p></a></li>';
             }
 			//append a new feed to the masterlist
