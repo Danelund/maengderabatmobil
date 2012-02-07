@@ -13,25 +13,14 @@ var feeds = {
 'Deal2Deal' : 'http://www.deal2deal.dk/feed.php',
 'Pinq' : 'http://pinq.dk/feed/',}
 
-			/*<li onclick="url=''"><a href="#page2">Downtown</a><img src="http://static.downtown.dk/favicon.ico" class="ui-li-icon"></li>
-            <li onclick="url=''"><a href="#page2">Dealhunter</a><img src="http://dealhunter.dk/favicon.ico" class="ui-li-icon"></li>
-            <li onclick="url=''"><a href="#page2">Takeoffer</a><img src="http://www.takeoffer.dk/favicon.ico" class="ui-li-icon"></li>
-			<li onclick="url=''"><a href="#page2">Dealicious</a><img src="http://www.dealicious.dk/img/favicon.ico?1328584070" class="ui-li-icon"></li>
-            <li onclick="url=''"><a href="#page2">Tipster</a><img src="http://tipster.dk/static/icon/favicon.ico" class="ui-li-icon"></li>
-			<li onclick="url=''"><a href="#page2">Just Half Price</a><img src="http://www.just-half-price.dk/themes/icon/favicon.ico" class="ui-li-icon"></li>
-            <!--<li onclick="url=''"><a href="#page2">Wellness Deals</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
-			<li onclick="url=''"><a href="#page2">Slå til nu</a><img src="http://www.slaatilnu.dk/site/slaatilnu.dk/templates/images/favicon.ico" class="ui-li-icon"></li>
-            <!--<li onclick="'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
-            <li onclick="url=''"><a href="#page2">Groupon</a><img src="http://static.dk.groupon-content.net/s/images/layout/favicon_groupon.ico" class="ui-li-icon"></li>
-			<li onclick="url=''"><a href="#page2">Pinq</a><img src="http://pinq.dk/wp-content/themes/pinq/images/favicon.ico" class="ui-li-icon"></li>*/
-$(function(){
+init(){
    /* for(var feed in feeds)
 	{
 		//build a feed from the (feed name, feed url)
 		buildFeed(feed,feeds[feed])
 	}
 	$('ul').listview('refresh');*/
-});
+}
 
 function buildFeed(title, url)
 {
