@@ -2,39 +2,37 @@
 <html>
 <head>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-    <title>jQuery Mobile Application</title>
+    <title>Mængderabat - spar mere</title>
 	<script src="phonegap.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
     <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
     <script src="assets/js/jquery.jfeed.pack.js"></script>
 	<script src="assets/js/app.js" charset="utf-8"></script>
+	<style>
+	.ui-li-icon{width:16px;height:16px;}
+	</style>
 </head>
 <body onload="init()">
 <!-- begin first page -->
 <section id="main" data-role="page" data-theme="b">
     <header data-role="header">
-        <h1>JQuery Mobile RSS feed</h1>
+        <h1>Mængderabat - spar mere</h1>
     </header>
-<!--
-			//'http://www.just-half-price.dk/feed.php',
-			//'http://www.dealicious.dk/modules/feeder/rss.php',
-			//'http://pinq.dk/feed/',
-			//'http://www.dealsurf.dk/?format=feed', - feed formateret med tabeller (PUH!!)
-			//'http://www.slaatilnu.dk/site/slaatilnu.dk/rss/weekly.xml',
-			'http://my2day.dk/rss/',*/-->
     <div data-role="content" class="content">
-        <ul data-role="listview" data-inset="true" data-theme="b">
-            <li data-role="divider">Design</li>
-            <li onclick="url='http://downtown.dk/rss'"><a href="#page2">Downtown</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://dealhunter.dk/rss'"><a href="#page2">Dealhunter</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://grouptown.dk/frontend/feeds/rss'"><a href="#page2">Grouptown</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://www.takeoffer.dk/rss'"><a href="#page2">Takeoffer</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='tipster.dk/feed.php?ename=København'"><a href="#page2">Tipster</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://www.dagligetilbud.dk/feed/'"><a href="#page2">Daglige Tilbud</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://www.wellnessdeal.dk/deals.xml'"><a href="#page2">Wellness Deals</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://www.deal2deal.dk/feed.php'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
-            <li onclick="url='http://api.groupon.de/feed/api/v1/deals/oftheday/DK/kobenhavn'"><a href="#page2">Groupon</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="divider">Tilbud</li>
+            <li onclick="url='http://downtown.dk/rss'"><a href="#page2">Downtown</a><img src="http://static.downtown.dk/favicon.ico" class="ui-li-icon"></li>
+            <li onclick="url='http://dealhunter.dk/rss'"><a href="#page2">Dealhunter</a><img src="http://dealhunter.dk/favicon.ico" class="ui-li-icon"></li>
+            <li onclick="url='http://www.takeoffer.dk/rss'"><a href="#page2">Takeoffer</a><img src="http://www.takeoffer.dk/favicon.ico" class="ui-li-icon"></li>
+			<li onclick="url='http://www.dealicious.dk/modules/feeder/rss.php'"><a href="#page2">Dealicious</a><img src="http://www.dealicious.dk/img/favicon.ico?1328584070" class="ui-li-icon"></li>
+            <li onclick="url='tipster.dk/feed.php?ename=København'"><a href="#page2">Tipster</a><img src="http://tipster.dk/static/icon/favicon.ico" class="ui-li-icon"></li>
+			<li onclick="url='http://www.just-half-price.dk/feed.php'"><a href="#page2">Just Half Price</a><img src="http://www.just-half-price.dk/themes/icon/favicon.ico" class="ui-li-icon"></li>
+            <!--<li onclick="url='http://www.wellnessdeal.dk/deals.xml'"><a href="#page2">Wellness Deals</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
+			<li onclick="url='http://www.slaatilnu.dk/site/slaatilnu.dk/rss/weekly.xml'"><a href="#page2">Slå til nu</a><img src="http://www.slaatilnu.dk/site/slaatilnu.dk/templates/images/favicon.ico" class="ui-li-icon"></li>
+            <!--<li onclick="url='http://www.deal2deal.dk/feed.php'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
+            <li onclick="url='http://api.groupon.de/feed/api/v1/deals/oftheday/DK/kobenhavn'"><a href="#page2">Groupon</a><img src="http://static.dk.groupon-content.net/s/images/layout/favicon_groupon.ico" class="ui-li-icon"></li>
+			<li onclick="url='http://pinq.dk/feed/'"><a href="#page2">Pinq</a><img src="http://pinq.dk/wp-content/themes/pinq/images/favicon.ico" class="ui-li-icon"></li>
         </ul>
     </div>
 
@@ -47,7 +45,7 @@
 <!-- begin second page -->
 <section id="page2" data-role="page" data-theme="b">
     <header data-role="header">
-        <h1>JQuery Mobile RSS feed</h1>
+        <h1>Mængderabat - spar mere</h1>
     </header>
 
     <div data-role="content" class="content">
