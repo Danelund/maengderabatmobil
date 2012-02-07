@@ -39,7 +39,7 @@ function buildFeed(title, url)
        url: url,
        success: function(feed)
        {
-	   //make the feedcontent / list items
+			//make the feedcontent / list items
 			var feedcontent = "";
             for(var i = 0; i < feed.items.length && i < 10; i++)
             {
@@ -50,7 +50,11 @@ function buildFeed(title, url)
 			$("#feedlist").append('<li><a href="#'+title+'"></a><img src="assets/img/'+title+'.png" class="ui-li-icon"></li>');
 			//append a new section that contains the feed items for the new feed
 			$("body").append('<section id="'+title+'" data-role="page" data-theme="b"><header data-role="header"><h1>'+title+'</h1></header><div data-role="content" class="content">'+buildFeedContent(url)+'<ul data-role="listview" data-inset="true"></ul></div><footer data-role="footer"><h2>example by Oikos Development</h2></footer></section>');
-       }
+       },
+	   error: function(e)
+	   {
+	   alert(e.statusText);
+	   }
     });
 }
 
