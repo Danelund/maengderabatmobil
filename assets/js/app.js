@@ -24,15 +24,14 @@ var feeds = {
             <!--<li onclick="'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>-->
             <li onclick="url=''"><a href="#page2">Groupon</a><img src="http://static.dk.groupon-content.net/s/images/layout/favicon_groupon.ico" class="ui-li-icon"></li>
 			<li onclick="url=''"><a href="#page2">Pinq</a><img src="http://pinq.dk/wp-content/themes/pinq/images/favicon.ico" class="ui-li-icon"></li>*/
-$(function(){
-    setTimeout(function(){for(var feed in feeds)
+/*$(function(){
+    for(var feed in feeds)
 	{
 		//build a feed from the (feed name, feed url)
 		buildFeed(feed,feeds[feed])
 	}
 	$('ul').listview('refresh');
-	},5000);
-});
+});*/
 
 function buildFeed(title, url)
 {
