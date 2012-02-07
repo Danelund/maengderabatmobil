@@ -1,59 +1,35 @@
-// 
-//  --- our app behavior logic ---
-//
-run(function () {
-    // immediately invoked on first run
-    var init = (function () {
-        navigator.network.isReachable("google.com", function(status) {
-			var connectivity = (status.internetConnectionStatus || status.code || status);
-        	if (connectivity === NetworkStatus.NOT_REACHABLE) {
-        		alert("No internet connection - we won't be able to show you any maps");
-        	} else {
-        		alert("We can reach Google - get ready for some awesome maps!");
-        	}
-        });
-    })();
-    
-    // a little inline controller
-    when('#welcome');
-    when('#settings', function() {
-		// load settings from store and make sure we persist radio buttons.
-		store.get('config', function(saved) {
-			if (saved) {
-				if (saved.map) {
-					x$('input[value=' + saved.map + ']').attr('checked',true);
-				}
-				if (saved.zoom) {
-					x$('input[name=zoom][value="' + saved.zoom + '"]').attr('checked',true);
-				}
-			}
-		});
-	});
-    when('#map', function () {
-        store.get('config', function (saved) {
-            // construct a gmap str
-            var map  = saved ? saved.map || ui('map') : ui('map')
-            ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
-            ,   path = "http://maps.google.com/maps/api/staticmap?center=";
-			
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var location = "" + position.coords.latitude + "," + position.coords.longitude;
-                path += location + "&zoom=" + zoom;
-                path += "&size=250x250&maptype=" + map + "&markers=color:red|label:P|";
-                path += location + "&sensor=false";
+var url="";
 
-                x$('img#static_map').attr('src', path);
-            }, function () {
-                x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
-            });
-        });
+function init()
+{
+    $("#page2").bind("pageshow", function onPageShow(event, ui)
+    {
+        $.mobile.pageLoading();
+        refreshFeed();
     });
-    when('#save', function () {
-        store.save({
-            key:'config',
-            map:ui('map'),
-            zoom:ui('zoom')
-        });
-        display('#welcome');
+
+    $("#page2").bind("pagehide", function onPageHide(event, ui)
+    {
+        $("#page2 ul").empty();
     });
-});
+}
+
+function refreshFeed()
+{
+    jQuery.getFeed({
+       url: url,
+       success: function(feed)
+       {
+               $("#page2 ul").append('<li data-role="divider" data-theme="b">'+feed.title+'</li>');
+
+            for(var i = 0; i < feed.items.length && i < 10; i++)
+            {
+                var item = feed.items[i];
+                $("#page2 ul").append('<li><a href="'+item.link+'">'+item.title+'</a></li>');
+            }
+
+            $('#page2 ul').listview('refresh');
+            $.mobile.pageLoading( true );
+       }
+    });
+}

@@ -1,63 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
-		<title>Training App</title>
-		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
-		
-		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
-		
-	</head>
-	<body>
- 		<div id="title_bar">Phone<strong>Gap</strong> Training App</div>
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <title>jQuery Mobile Application</title>
+	<script src="phonegap.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+    <script src="assets/js/jquery.jfeed.pack.js"></script>
+	<script src="assets/js/app.js" charset="utf-8"></script>
+</head>
+<body onload="init()">
+<!-- begin first page -->
+<section id="main" data-role="page" data-theme="b">
+    <header data-role="header">
+        <h1>JQuery Mobile RSS feed</h1>
+    </header>
+<!--
+			//'http://www.just-half-price.dk/feed.php',
+			//'http://www.dealicious.dk/modules/feeder/rss.php',
+			//'http://pinq.dk/feed/',
+			//'http://www.dealsurf.dk/?format=feed', - feed formateret med tabeller (PUH!!)
+			//'http://www.slaatilnu.dk/site/slaatilnu.dk/rss/weekly.xml',
+			'http://my2day.dk/rss/',*/-->
+    <div data-role="content" class="content">
+        <ul data-role="listview" data-inset="true" data-theme="b">
+            <li data-role="divider">Design</li>
+            <li onclick="url='http://downtown.dk/rss'"><a href="#page2">Downtown</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://dealhunter.dk/rss'"><a href="#page2">Dealhunter</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://grouptown.dk/frontend/feeds/rss'"><a href="#page2">Grouptown</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://www.takeoffer.dk/rss'"><a href="#page2">Takeoffer</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='tipster.dk/feed.php?ename=København'"><a href="#page2">Tipster</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://www.dagligetilbud.dk/feed/'"><a href="#page2">Daglige Tilbud</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://www.wellnessdeal.dk/deals.xml'"><a href="#page2">Wellness Deals</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://www.deal2deal.dk/feed.php'"><a href="#page2">Deal2Deal</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+            <li onclick="url='http://api.groupon.de/feed/api/v1/deals/oftheday/DK/kobenhavn'"><a href="#page2">Groupon</a><img src="assets/icons/rss.png" class="ui-li-icon"></li>
+        </ul>
+    </div>
 
-		<div id="welcome" class="view">
-		  <div class="app_button" id="map_button">Show My Location</div>
-  	      <div class="app_button" id="settings_button">Settings</div>
-		</div>
+    <footer data-role="footer">
+        <h2>example by Oikos Development</h2>
+    </footer>
+</section>
+<!-- end first page -->
 
-		<div id="map" class="view">
-		  <div class="map_image">
-              <img id="static_map" src="assets/img/staticmap.png">
-		  </div>
-		  <p>This is where you are</p>
-		  <div class="app_button" id="welcome_button">Go Back</div>
-		</div>
+<!-- begin second page -->
+<section id="page2" data-role="page" data-theme="b">
+    <header data-role="header">
+        <h1>JQuery Mobile RSS feed</h1>
+    </header>
 
-		<div id="settings" class="view">
-		  <form id="settings_form">
-		    <fieldset>
-		      <legend>Map Type</legend>
-			  <input type="radio" name="map" value="roadmap" checked>Road Map<br/>
-		      <input type="radio" name="map" value="satellite">Satellite<br/>
-		      <input type="radio" name="map" value="terrain">Terrain<br/>
-		      <input type="radio" name="map" value="hybrid">Hybrid<br/>
-		    </fieldset>
-		    <fieldset>
-		      <legend>Zoom Level</legend>
-  		      <input type="radio" name="zoom" value="10">Super Far<br/>
-  		      <input type="radio" name="zoom" value="12">Far<br/>
-  		      <input type="radio" name="zoom" value="15" checked>Normal<br/>
-  		      <input type="radio" name="zoom" value="18">Close<br/>
-  		      <input type="radio" name="zoom" value="20">Super Close<br/>
-  		     </fieldset>
-		      <button id="save_button">Save</button>
-	      </form>
-		</div>
+    <div data-role="content" class="content">
+        <ul data-role="listview" data-inset="true" data-theme="a">
 
-	</body>
+        </ul>
+    </div>
+
+    <footer data-role="footer">
+        <h2>example by Oikos Development</h2>
+    </footer>
+</section>
+<!-- end second page -->
+    </body>
 </html>
