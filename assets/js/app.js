@@ -1,5 +1,4 @@
-var url="";
-
+//define feeds that should be listed
 var feeds = {
 'Downtown' : 'http://downtown.dk/rss',
 'Dealhunter' : 'http://dealhunter.dk/rss',
@@ -11,15 +10,15 @@ var feeds = {
 'Slå Til Nu' : 'http://www.slaatilnu.dk/site/slaatilnu.dk/rss/weekly.xml',
 'Groupon' : 'http://api.groupon.de/feed/api/v1/deals/oftheday/DK/kobenhavn',
 'Deal2Deal' : 'http://www.deal2deal.dk/feed.php',
-'Pinq' : 'http://pinq.dk/feed/',}
+'Pinq' : 'http://pinq.dk/feed/'}
 
 function init(){
-   /* for(var feed in feeds)
+    for(var feed in feeds)
 	{
 		//build a feed from the (feed name, feed url)
-		buildFeed(feed,feeds[feed])
+		buildFeed(feed,feeds[feed]);
 	}
-	$('ul').listview('refresh');*/
+	$('ul').listview('refresh');
 }
 
 function buildFeed(title, url)
