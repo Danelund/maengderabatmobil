@@ -13,7 +13,7 @@ var feeds = {
 'Deal2Deal' : 'http://www.deal2deal.dk/feed.php',
 'Pinq' : 'http://pinq.dk/feed/',}
 
-init(){
+function init(){
    /* for(var feed in feeds)
 	{
 		//build a feed from the (feed name, feed url)
